@@ -2,9 +2,21 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { secondBlue } from '../utils/colors';
+import { Audio } from 'expo-av';
 
-class Dashboard extends React.Component {
-    render() {
+export default function Dashboard() {
+    const [sound, setSound] = React.useState();
+
+    async function playSound() {
+        console.log('Loading Sound');
+        const { sound } = await Audio.Sound.createAsync(
+           require('../assets/portret.mp3')
+        );
+        setSound(sound);
+    
+        console.log('Playing Sound');
+        await sound.playAsync(); 
+    }
         return (
             <View style={styles.container}>
                 <View>
@@ -14,14 +26,13 @@ class Dashboard extends React.Component {
                     <Text style={styles.title}>Nazdar Trosky!</Text>
                 </View>
                 <View>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={playSound}>
                         <Text style={styles.btn} >Rikej!</Text>
                     </TouchableOpacity>
                 </View>
             </View>
         )
     }
-}
 
 const styles = StyleSheet.create({
     container: {
@@ -43,5 +54,3 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     }
   });
-
-export default Dashboard;
