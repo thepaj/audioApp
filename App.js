@@ -1,21 +1,56 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { Button, View, StatusBar } from 'react-native';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import { mainBlue } from './utils/colors';
 
-export default function App() {
+import Dashboard from './components/Dashboard';
+import Seznam from './components/Seznam';
+import Contact from './components/Contact';
+
+function MyStatusBar({ backgroundColor, ...props }) {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View>
+      <StatusBar translucent backgroundColor={mainBlue} {...props} />
+    </View>
+  )
+}
+
+function HomeScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: mainBlue }}>
+      <Dashboard />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+function SeznamScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: mainBlue }}>
+      <Seznam />
+    </View>
+  );
+}
+
+function ContactScreen({ navigation }) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: mainBlue }}>
+      <Contact />
+    </View>
+  )
+}
+
+const Drawer = createDrawerNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <MyStatusBar />
+      <Drawer.Navigator initialRouteName="Domu">
+        <Drawer.Screen name="Domu" component={HomeScreen} />
+        <Drawer.Screen name="Vsechna moudra" component={SeznamScreen} />
+        <Drawer.Screen name="Kontakt na me" component={ContactScreen} />
+      </Drawer.Navigator>
+    </NavigationContainer>
+  );
+}
