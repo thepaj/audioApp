@@ -1,9 +1,10 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { secondBlue } from '../utils/colors';
 import { FontAwesome } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+//import { MaterialCommunityIcons } from '@expo/vector-icons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 class Contact extends React.Component {
     render() {
@@ -13,10 +14,10 @@ class Contact extends React.Component {
                     <Text style={styles.title}>Nevahejte se na me obratit pokud mate jakkekoliv dotaze, napady nebo pripominky!</Text>
                 </View>
                 <View style={styles.bottomContainer}>
-                    <View style={styles.box} >
+                    <TouchableOpacity style={styles.box} >
                         <FontAwesome5 name="laptop" size={24} color="white" />
                         <Text style={styles.infoText}>www.pavlajureckova.com</Text>
-                    </View>
+                    </TouchableOpacity>
                     <View style={styles.box}>
                         <MaterialCommunityIcons name="email" size={24} color="white" />
                         <Text style={styles.infoText}>pavla.jureckova@gypri.cz</Text>
@@ -34,10 +35,9 @@ class Contact extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginTop: 20,
     },
     topContainer: {
-        marginTop: 100,
+        marginTop: 10,
     },
     title: {
         alignSelf: 'flex-start',

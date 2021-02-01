@@ -1,8 +1,17 @@
-export const MICHAL = [
+import TYTAKYSIPIL from '../assets/sound/ty-taky-si-pil.mp3';
+
+export const DATA = [
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      title: 'Ty taky si pil, ale ty nevypadas jako debil.',
+      author: 'Matka',
+      sound: '../assets/sound/ty-taky-si-pil.mp3',
+    },
     {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
       title: 'Ty ses psychopat',
       author: 'Michal Kratejl',
+      avatar: './images/michal.jpeg'
     },
     {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f61',
@@ -33,11 +42,6 @@ export const MICHAL = [
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28bc',
       title: 'Nejradsi mam tady toho cernyho skalara.',
       author: 'Igor Chaun'
-    },
-    {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Vubec ne, ja sem svrchovane nad veci!',
-      author: 'Matka',
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d74',
