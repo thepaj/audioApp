@@ -1,9 +1,15 @@
 import * as React from 'react';
-import { View, StatusBar, Button } from 'react-native';
+import { View, StatusBar, Image, TouchableOpacity } from 'react-native';
 
 //navigation imports
 import 'react-native-gesture-handler';
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+  DrawerItem,
+  useIsDrawerOpen
+} from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { enableScreens } from 'react-native-screens';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
@@ -11,10 +17,11 @@ import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 import { mainBlue, secondBlue } from './utils/colors';
 
 import Home from './components/Home';
-import Seznam from './components/Seznam';
+import Soundboard from './components/Soundboard';
 import Contact from './components/Contact';
 
-import { MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons';
+import SHARE from './utils/images/icons/share.png';
+import MENU from './utils/images/icons/menu.png';
 
 function MyStatusBar({ backgroundColor, ...props }) {
   return (
@@ -31,18 +38,18 @@ const Drawer = createDrawerNavigator();
 enableScreens();
 const Stack = createNativeStackNavigator();
 
-function HomeScreen({navigation}) {
+function HomeScreen() {
   return (
     <Drawer.Navigator 
-        initialRouteName="Home">
+        initialRouteName="Home" >
         <Drawer.Screen name="Home" component={Home}/>
-        <Drawer.Screen name="Soundboard" component={Seznam} />
+        <Drawer.Screen name="Soundboard" component={Soundboard} />
         <Drawer.Screen name="Kontakt na me" component={Contact} />
     </Drawer.Navigator>
   );
 }
 
-export default function App() {
+export default function App(props) {
   return (
     <NavigationContainer>
       <MyStatusBar />
@@ -50,29 +57,35 @@ export default function App() {
         <Stack.Screen 
             name="HomeScreem" 
             component={HomeScreen} 
-            options={({ navigation, route }) => ({
-              title: 'Home',
+            options={() => ({
+              title: '',
+              color: 'white',
+              borderTopWidth: 0,
+              elevation: 0,
               headerStyle: {
                 backgroundColor: mainBlue,
+                borderTopWidth: 0,
+                elevation: 0,
               },
-              headerLeft: () => (
-                <MaterialCommunityIcons name="menu" size={24} color="white" onPress={() => navigation.navigate('DrawerOpen')}/>
-              ),
               headerRight: () => (
-                <FontAwesome5 name="share-alt" size={24} color="white" />
+                <TouchableOpacity>
+                    <Image source={SHARE} style={{ width: 35, height: 35 }}/>
+                </TouchableOpacity>
               ),
             })}/>
         <Stack.Screen 
             name="Soundboard" 
-            component={Seznam} 
+            component={Soundboard} 
             options={{
               title: 'Soundboard',
               headerStyle: {
                 backgroundColor: mainBlue,
+                borderTopWidth: 0,
+                elevation: 0,
               },
-              headerTintColor: secondBlue,
               headerTitleStyle: {
                 fontWeight: 'bold',
+                color: 'white',
               },
             }}/>
         <Stack.Screen 
@@ -88,13 +101,7 @@ export default function App() {
                 fontWeight: 'bold',
               },
             }}/>
-    </Stack.Navigator>
-      {/* <Drawer.Navigator initialRouteName="Dashboard">
-        <Drawer.Screen name="Dashboard" component={HomeScreen}/>
-        <Drawer.Screen name="Root" component={Root} />
-        <Drawer.Screen name="Soundboard" component={SeznamScreen} />
-        <Drawer.Screen name="Kontakt na me" component={ContactScreen} />
-      </Drawer.Navigator> */}
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }

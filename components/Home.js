@@ -5,23 +5,27 @@ import Thumbnail from '../utils/images/michal-main.png';
 import { Audio } from 'expo-av';
 import TAKJIZASMELIME from '../assets/sound/tak-ji-zasmelime.mp3';
 
-export default function Home() {
-    const [sound, setSound] = React.useState();
+export default function Home({ navigation }) {
+    // const [sound, setSound] = React.useState();
 
-    async function playSound() {
-        const { sound } = await Audio.Sound.createAsync(TAKJIZASMELIME)
+    // async function playSound() {
+    //     const { sound } = await Audio.Sound.createAsync(TAKJIZASMELIME)
         
-        setSound(sound);
+    //     setSound(sound);
   
-        await sound.playAsync(); 
-    }
+    //     await sound.playAsync(); 
+    // }
 
-    React.useEffect(() => {
-      return sound
-        ? () => {
-            sound.unloadAsync(); }
-        : undefined;
-    }, [sound]);
+    // React.useEffect(() => {
+    //   return sound
+    //     ? () => {
+    //         sound.unloadAsync(); }
+    //     : undefined;
+    // }, [sound]);
+
+    function onButtonNavigate() {
+        navigation.navigate('Soundboard');
+    }
 
     return (
             <View style={styles.container}>
@@ -33,11 +37,8 @@ export default function Home() {
                 </View>
                 <View>
                     <TouchableOpacity 
-                        onPress={() => {
-                            playSound; 
-                            //this.props.navigation.navigate('Soundboard');
-                            }}>
-                        <Text style={styles.btn} >Mas kameru?</Text>
+                        onPress={onButtonNavigate}>
+                        <Text style={styles.btn} >Soundboard</Text>
                     </TouchableOpacity>
                 </View>
             </View>

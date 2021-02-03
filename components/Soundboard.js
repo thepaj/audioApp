@@ -6,14 +6,12 @@ import ImageMichal from '../utils/images/michal.jpeg';
 import ImageMatka from '../utils/images/matka.jpeg';
 import ImageIgor from '../utils/images/igor.png';
 import { Audio } from 'expo-av';
-import TYTAKYSIPIL from '../assets/sound/ty-taky-si-pil.mp3';
 
-export default function Seznam() {
+export default function Soundboard() {
     const [sound, setSound] = React.useState();
 
-    async function playSound() {
-        console.log('Loading Sound');
-        const { sound } = await Audio.Sound.createAsync(TYTAKYSIPIL)
+    async function playSound(itemSound) {
+        const { sound } = await Audio.Sound.createAsync(itemSound)
         
         setSound(sound);
   
@@ -30,7 +28,7 @@ export default function Seznam() {
 
     // defining ITEM
     const Item = ({ title, author, sound }) => (
-      <TouchableOpacity style={styles.item} onPress={playSound}>
+      <TouchableOpacity style={styles.item} onPress={() => playSound(sound)}>
         <View style={styles.iconContainer}>
           {author === 'Michal Kratejl' &&
             <Image style={styles.avatar} source={ImageMichal}/>
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
     item: {
         flex: 1,
         padding: 20,
-        marginTop: 10,
+        marginVertical: 10,
         marginHorizontal: 10,
         flexDirection: 'row',
         alignItems: 'center',
