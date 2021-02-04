@@ -2,27 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
 import { mainBlue, secondBlue } from '../utils/colors';
 import Thumbnail from '../utils/images/michal-main.png';
-import { Audio } from 'expo-av';
-import TAKJIZASMELIME from '../assets/sound/tak-ji-zasmelime.mp3';
 
 export default function Home({ navigation }) {
-    // const [sound, setSound] = React.useState();
-
-    // async function playSound() {
-    //     const { sound } = await Audio.Sound.createAsync(TAKJIZASMELIME)
-        
-    //     setSound(sound);
-  
-    //     await sound.playAsync(); 
-    // }
-
-    // React.useEffect(() => {
-    //   return sound
-    //     ? () => {
-    //         sound.unloadAsync(); }
-    //     : undefined;
-    // }, [sound]);
-
     function onButtonNavigate() {
         navigation.navigate('Soundboard');
     }
@@ -36,8 +17,7 @@ export default function Home({ navigation }) {
                     <Text style={styles.title}>Nazdar Trosko!</Text>
                 </View>
                 <View>
-                    <TouchableOpacity 
-                        onPress={onButtonNavigate}>
+                    <TouchableOpacity onPress={onButtonNavigate}>
                         <Text style={styles.btn} >Soundboard</Text>
                     </TouchableOpacity>
                 </View>

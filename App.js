@@ -43,13 +43,12 @@ function HomeScreen() {
     <Drawer.Navigator 
         initialRouteName="Home" >
         <Drawer.Screen name="Home" component={Home}/>
-        <Drawer.Screen name="Soundboard" component={Soundboard} />
         <Drawer.Screen name="Kontakt na me" component={Contact} />
     </Drawer.Navigator>
   );
 }
 
-export default function App(props) {
+export default function App() {
   return (
     <NavigationContainer>
       <MyStatusBar />
@@ -59,19 +58,10 @@ export default function App(props) {
             component={HomeScreen} 
             options={() => ({
               title: '',
-              color: 'white',
-              borderTopWidth: 0,
-              elevation: 0,
               headerStyle: {
                 backgroundColor: mainBlue,
-                borderTopWidth: 0,
-                elevation: 0,
               },
-              headerRight: () => (
-                <TouchableOpacity>
-                    <Image source={SHARE} style={{ width: 35, height: 35 }}/>
-                </TouchableOpacity>
-              ),
+              headerTintColor: secondBlue,
             })}/>
         <Stack.Screen 
             name="Soundboard" 
@@ -80,13 +70,8 @@ export default function App(props) {
               title: 'Soundboard',
               headerStyle: {
                 backgroundColor: mainBlue,
-                borderTopWidth: 0,
-                elevation: 0,
               },
-              headerTitleStyle: {
-                fontWeight: 'bold',
-                color: 'white',
-              },
+              headerTintColor: secondBlue,
             }}/>
         <Stack.Screen 
             name="Kontakt na me" 
@@ -97,9 +82,6 @@ export default function App(props) {
                 backgroundColor: mainBlue,
               },
               headerTintColor: secondBlue,
-              headerTitleStyle: {
-                fontWeight: 'bold',
-              },
             }}/>
       </Stack.Navigator>
     </NavigationContainer>
