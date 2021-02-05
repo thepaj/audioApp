@@ -3,13 +3,7 @@ import { View, StatusBar, Image, TouchableOpacity } from 'react-native';
 
 //navigation imports
 import 'react-native-gesture-handler';
-import {
-  createDrawerNavigator,
-  DrawerContentScrollView,
-  DrawerItemList,
-  DrawerItem,
-  useIsDrawerOpen
-} from '@react-navigation/drawer';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { enableScreens } from 'react-native-screens';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
@@ -19,9 +13,6 @@ import { mainBlue, secondBlue } from './utils/colors';
 import Home from './components/Home';
 import Soundboard from './components/Soundboard';
 import Contact from './components/Contact';
-
-import SHARE from './utils/images/icons/share.png';
-import MENU from './utils/images/icons/menu.png';
 
 function MyStatusBar({ backgroundColor, ...props }) {
   return (
