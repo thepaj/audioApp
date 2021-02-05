@@ -1,11 +1,5 @@
 export const DATA = [
     {
-      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-      title: 'Ty taky si pil, ale ty nevypadáš jako debil.',
-      author: 'Matka',
-      sound: require('../assets/sound/ty-taky-si-pil.mp3'),
-    },
-    {
       id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
       title: 'Ty seš psychopat',
       author: 'Michal Kratejl',
@@ -14,7 +8,7 @@ export const DATA = [
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d72',
-      title: 'Já nemám čas se tady onanovat do zejtra.',
+      title: 'Já nemám čas se tady onanovat do zejtra. Ty vole, dyť jdeme chlastat, nedělej scény.',
       author: 'Michal Kratejl',
       sound: require('../assets/sound/ja-nemam-cas.mp3'),
     },
@@ -26,7 +20,7 @@ export const DATA = [
     },
     {
       id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f62',
-      title: 'A to je ten Jidáš, Ty vole, s kamerou z Kanady',
+      title: 'A to je ten Jidáš, Ty vole, s kamerou z Kanady.',
       author: 'Igor Chaun',
       sound: require('../assets/sound/a-to-je-ten-jidas.mp3'),
     },
@@ -44,9 +38,15 @@ export const DATA = [
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d74',
-      title: 'Ja tě tak prokleju! A bude to tak platit!',
+      title: 'Ja tě tak prokleju! A bude to tak platit...',
       author: 'Matka',
       sound: require('../assets/sound/ja-te-tak-prokleju.mp3'),
+    },
+    {
+      id: '58694a0f-3da1-471f-bd96-145571e29d74q',
+      title: 'A nejsi trochu hysterická? Vůbec ne, já jsem svrchovaně nad věcí.',
+      author: 'Matka',
+      sound: require('../assets/sound/nejsi-hystericka.mp3'),
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d75',
@@ -62,7 +62,7 @@ export const DATA = [
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d77',
-      title: 'A to je Michal Kratejl, von je vyřízenej!, ',
+      title: 'A to je Michal Kratejl, von je vyřízenej!',
       author: 'Igor Chaun',
       sound: require('../assets/sound/a-to-je-michal-kratejl.mp3'),
     },
@@ -90,8 +90,12 @@ export const DATA = [
       author: 'Matka',
       sound: require('../assets/sound/tady-se-kouri.mp3'),
     },
-
-    // new
+    {
+      id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+      title: 'Ty taky si pil, ale ty nevypadáš jako debil.',
+      author: 'Matka',
+      sound: require('../assets/sound/ty-taky-si-pil.mp3'),
+    },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d7d',
       title: 'A je pěkně vodulej z toho chlastu.',
@@ -118,7 +122,7 @@ export const DATA = [
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d7j',
-      title: 'To je Michal Kratejl, můj kamarád, on chlastá, on bejval chytrej, teď dělá plavčíka, protože je vyřízenej.',
+      title: 'To je Michal Kratejl, to je můj kamarád, on chlastá, on bejval chytrej, teď dělá plavčíka, protože je vyřízenej.',
       author: 'Igor Chaun',
       sound: require('../assets/sound/kamarad-z-drivejska.mp3'),
     },
@@ -138,7 +142,7 @@ export const DATA = [
       id: '58694a0f-3da1-471f-bd96-145571e29d7y',
       title: 'Pětadvacetiletý mladý muž vysokoškolák? Který o sobě říkal, že má nějaký talent, a že je syn umělce? No nezlob se to je tragédie!',
       author: 'Matka',
-      sound: require('../assets/sound/nejsi-hystericka.mp3'),
+      sound: require('../assets/sound/petadvacetilety-mlady-muz.mp3'),
     },
     {
       id: '58694a0f-3da1-471f-bd96-145571e29d7x',

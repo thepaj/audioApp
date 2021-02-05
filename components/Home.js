@@ -16,7 +16,7 @@ export default function Home({ navigation }) {
                 <View>
                     <Text style={styles.title}>Nazdar Trosko!</Text>
                 </View>
-                <View>
+                <View >
                     <TouchableOpacity onPress={onButtonNavigate}>
                         <Text style={styles.btn} >Soundboard</Text>
                     </TouchableOpacity>
@@ -28,10 +28,10 @@ export default function Home({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 30,
         alignItems: 'center',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
         backgroundColor: mainBlue,
+        padding: 20,
     },
     image: {
         width:300,
@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
         textTransform: 'uppercase',
         color: '#fff',
         fontSize: 70,
+        textAlign: 'center',
     },
     btn: {
         color: '#fff',

@@ -74,7 +74,7 @@ export default function App() {
               headerTintColor: secondBlue,
             }}/>
         <Stack.Screen 
-            name="Kontakt na me" 
+            name="Kontakt" 
             component={Contact} 
             options={{
               title: 'Kontakt',
