@@ -10,9 +10,7 @@ import filter from 'lodash.filter';
 
 export default function Soundboard() {
     const [sound, setSound] = React.useState();
-    const [isLoading, setIsLoading] = React.useState(false);
     const [data, setData] = React.useState([]);
-    const [error, setError] = React.useState(null);
     const [query, setQuery] = React.useState('');
     const [fullData, setFullData] = React.useState([]);
 
@@ -71,7 +69,7 @@ export default function Soundboard() {
     };
     
     const contains = ( {title}, query) => {
-      if (title.includes(query)) {
+      if (title.toLowerCase().includes(query)) {
           return true;
         }
     
