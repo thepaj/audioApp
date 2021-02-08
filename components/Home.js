@@ -18,7 +18,7 @@ export default function Home({ navigation }) {
                 </View>
                 <View >
                     <TouchableOpacity onPress={onButtonNavigate}>
-                        <Text style={styles.btn} >Soundboard</Text>
+                        <Text style={styles.btn} >Hlášky</Text>
                     </TouchableOpacity>
                 </View>
             </View>

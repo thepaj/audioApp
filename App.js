@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StatusBar, Image, TouchableOpacity } from 'react-native';
+import { View, StatusBar} from 'react-native';
 
 //navigation imports
 import 'react-native-gesture-handler';
@@ -32,9 +32,10 @@ const Stack = createNativeStackNavigator();
 function HomeScreen() {
   return (
     <Drawer.Navigator 
-        initialRouteName="Home" >
-        <Drawer.Screen name="Home" component={Home}/>
-        <Drawer.Screen name="Kontakt na me" component={Contact} />
+        initialRouteName="Domů"
+        >
+        <Drawer.Screen name="Domů" component={Home} />
+        <Drawer.Screen name="Kontakt" component={Contact} />
     </Drawer.Navigator>
   );
 }
@@ -58,7 +59,7 @@ export default function App() {
             name="Soundboard" 
             component={Soundboard} 
             options={{
-              title: 'Soundboard',
+              title: 'Seznam hlášek',
               headerStyle: {
                 backgroundColor: mainBlue,
               },

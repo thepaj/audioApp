@@ -1,13 +1,20 @@
 {
-  "name": "myreactnativeapp",
-  "displayName": "myreactnativeapp",
+  "name": "Nejkrásnější portrét",
+  "displayName": "Nejkrásnější portrét",
   "expo": {
-    "name": "myreactnativeapp",
-    "slug": "myreactnativeapp",
+    "name": "Nejkrásnější portrét",
+    "slug": "nejkrasnejsiPortret",
     "version": "1.0.0",
-    "orientation" : "portrait",
+    "orientation": "portrait",
     "assetBundlePatterns": [
       "**/*"
-    ]
+    ],
+    "icon": "./assets/icons/michal.png",
+    "android": {
+      "package": "com.pavlajureckova.nejkrasnejsiportret"
+    },
+    "ios": {
+      "bundleIdentifier": "com.pavlajureckova.nejkrasnejsiportret"
+    }
   }
 }

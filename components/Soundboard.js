@@ -1,14 +1,20 @@
 import React from 'react';
-import { StyleSheet, SafeAreaView, View, FlatList, Text, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, SafeAreaView, View, FlatList, Text, Image, TouchableOpacity, TextInput } from 'react-native';
 import { DATA } from '../utils/data';
 import { mainBlue, secondBlue } from '../utils/colors';
 import ImageMichal from '../utils/images/michal.jpeg';
 import ImageMatka from '../utils/images/matka.jpeg';
 import ImageIgor from '../utils/images/igor.png';
 import { Audio } from 'expo-av';
+import filter from 'lodash.filter';
 
 export default function Soundboard() {
     const [sound, setSound] = React.useState();
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [data, setData] = React.useState([]);
+    const [error, setError] = React.useState(null);
+    const [query, setQuery] = React.useState('');
+    const [fullData, setFullData] = React.useState([]);
 
     async function playSound(itemSound) {
         const { sound } = await Audio.Sound.createAsync(itemSound)
@@ -25,7 +31,6 @@ export default function Soundboard() {
         : undefined;
     }, [sound]);
   
-
     // defining ITEM
     const Item = ({ title, author, sound }) => (
       <TouchableOpacity style={styles.item} onPress={() => playSound(sound)}>
@@ -50,12 +55,54 @@ export default function Soundboard() {
       <Item title={item.title} author={item.author} sound={item.sound}/>
     );
 
+    // Search code
+    React.useEffect(() => {
+      setData(DATA);
+      setFullData(DATA);
+    }, []);
+
+    const handleSearch = text => {
+      const formattedQuery = text.toLowerCase();
+      const filteredData = filter(fullData, item => {
+        return contains(item, formattedQuery);
+      });
+      setData(filteredData);
+      setQuery(text);
+    };
+    
+    const contains = ( {title}, query) => {
+      if (title.includes(query)) {
+          return true;
+        }
+    
+      return false;
+    };
+
+    function renderHeader() {
+      return (
+        <View
+          style={styles.textInput}
+        >
+          <TextInput
+            autoCapitalize="none"
+            autoCorrect={false}
+            clearButtonMode="always"
+            value={query}
+            onChangeText={queryText => handleSearch(queryText)}
+            placeholder="Hledej"
+            style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
+          />
+        </View>
+      );
+    }
+
     return(
         <SafeAreaView style={styles.container}>
             <FlatList
-                data={DATA}
+                data={data}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
+                ListHeaderComponent={renderHeader}
             />
         </SafeAreaView>
     )
@@ -64,6 +111,13 @@ export default function Soundboard() {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: mainBlue,
+    },
+    textInput: {
+      backgroundColor: '#fff',
+      padding: 10,
+      flex: 1,
+      margin: 10,
+      borderRadius: 25
     },
     item: {
         flex: 1,
@@ -97,6 +151,3 @@ const styles = StyleSheet.create({
       color: '#fff',
     }
 });
-
-
-
