@@ -4,7 +4,7 @@ import { View, StatusBar} from 'react-native';
 //navigation imports
 import 'react-native-gesture-handler';
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { enableScreens } from 'react-native-screens';
 import { createNativeStackNavigator } from 'react-native-screens/native-stack';
 
@@ -14,6 +14,7 @@ import Home from './components/Home';
 import Soundboard from './components/Soundboard';
 import Contact from './components/Contact';
 
+// create status bar
 function MyStatusBar({ backgroundColor, ...props }) {
   return (
     <View>
@@ -21,6 +22,19 @@ function MyStatusBar({ backgroundColor, ...props }) {
     </View>
   )
 }
+
+// create theme for navigation container
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: secondBlue,
+    background: mainBlue,
+    card: 'white',
+    border: mainBlue,
+    text: mainBlue,
+  },
+};
 
 // create DRAWER navigator
 const Drawer = createDrawerNavigator();
@@ -42,7 +56,7 @@ function HomeScreen() {
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <MyStatusBar />
       <Stack.Navigator>
         <Stack.Screen 

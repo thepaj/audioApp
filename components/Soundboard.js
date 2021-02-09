@@ -84,8 +84,9 @@ export default function Soundboard() {
           <TextInput
             autoCapitalize="none"
             autoCorrect={false}
+            autoFocus={true}
             clearButtonMode="always"
-            value={query}
+            defaultValue={query}
             onChangeText={queryText => handleSearch(queryText)}
             placeholder="Hledej"
             style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
