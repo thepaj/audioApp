@@ -14,6 +14,7 @@ export default function Soundboard() {
     const [query, setQuery] = React.useState('');
     const [fullData, setFullData] = React.useState([]);
 
+    // sound code
     async function playSound(itemSound) {
         const { sound } = await Audio.Sound.createAsync(itemSound)
         
@@ -28,30 +29,6 @@ export default function Soundboard() {
             sound.unloadAsync(); }
         : undefined;
     }, [sound]);
-  
-    // defining ITEM
-    const Item = ({ title, author, sound }) => (
-      <TouchableOpacity style={styles.item} onPress={() => playSound(sound)}>
-        <View style={styles.iconContainer}>
-          {author === 'Michal Kratejl' &&
-            <Image style={styles.avatar} source={ImageMichal}/>
-          } 
-          {author === 'Matka' &&
-            <Image style={styles.avatar} source={ImageMatka}/>
-          }
-          {author === 'Igor Chaun' &&
-            <Image style={styles.avatar} source={ImageIgor}/>
-          }
-        </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>{title}</Text>
-        </View>
-      </TouchableOpacity>
-    );
-
-    const renderItem = ({ item }) => (
-      <Item title={item.title} author={item.author} sound={item.sound}/>
-    );
 
     // Search code
     React.useEffect(() => {
@@ -84,7 +61,6 @@ export default function Soundboard() {
           <TextInput
             autoCapitalize="none"
             autoCorrect={false}
-            autoFocus={true}
             clearButtonMode="always"
             defaultValue={query}
             onChangeText={queryText => handleSearch(queryText)}
@@ -94,6 +70,30 @@ export default function Soundboard() {
         </View>
       );
     }
+
+        // defining ITEM
+        const Item = ({ title, author, sound }) => (
+          <TouchableOpacity style={styles.item} onPress={() => playSound(sound)}>
+            <View style={styles.iconContainer}>
+              {author === 'Michal Kratejl' &&
+                <Image style={styles.avatar} source={ImageMichal}/>
+              } 
+              {author === 'Matka' &&
+                <Image style={styles.avatar} source={ImageMatka}/>
+              }
+              {author === 'Igor Chaun' &&
+                <Image style={styles.avatar} source={ImageIgor}/>
+              }
+            </View>
+            <View style={styles.textContainer}>
+              <Text style={styles.title}>{title}</Text>
+            </View>
+          </TouchableOpacity>
+        );
+    
+        const renderItem = ({ item }) => (
+          <Item title={item.title} author={item.author} sound={item.sound}/>
+        );
 
     return(
         <SafeAreaView style={styles.container}>
