@@ -53,24 +53,6 @@ export default function Soundboard() {
       return false;
     };
 
-    function renderHeader() {
-      return (
-        <View
-          style={styles.textInput}
-        >
-          <TextInput
-            autoCapitalize="none"
-            autoCorrect={false}
-            clearButtonMode="always"
-            defaultValue={query}
-            onChangeText={queryText => handleSearch(queryText)}
-            placeholder="Hledej"
-            style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
-          />
-        </View>
-      );
-    }
-
         // defining ITEM
         const Item = ({ title, author, sound }) => (
           <TouchableOpacity style={styles.item} onPress={() => playSound(sound)}>
@@ -101,7 +83,19 @@ export default function Soundboard() {
                 data={data}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
-                ListHeaderComponent={renderHeader}
+                ListHeaderComponent={
+                  <View style={styles.textInput}>
+                      <TextInput
+                        autoCapitalize="none"
+                        autoCorrect={false}
+                        clearButtonMode="always"
+                        defaultValue={query}
+                        onChangeText={queryText => handleSearch(queryText)}
+                        placeholder="Hledej"
+                        style={{ backgroundColor: '#fff', paddingHorizontal: 20 }}
+                      />
+                  </View>
+                }
             />
         </SafeAreaView>
     )
